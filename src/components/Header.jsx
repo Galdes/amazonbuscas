@@ -9,7 +9,7 @@ export function Header({ onExportExcel, hasResults }) {
     >
       <div className="flex items-center gap-2">
         <img src="/icon-512.png" alt="" className="w-9 h-9 rounded-lg object-contain" />
-        <span className="font-semibold text-gray-800 text-lg">Amazon Finder</span>
+        <span className="font-semibold text-gray-800 text-lg">AMZ Buscas</span>
       </div>
       <motion.button
         whileHover={{ scale: 1.02 }}

@@ -1,6 +1,6 @@
 {
-  "name": "Amazon Product Finder",
-  "short_name": "Amazon Finder",
+  "name": "AMZ Buscas",
+  "short_name": "AMZ Buscas",
   "description": "Encontre ofertas e mais vendidos da Amazon",
   "start_url": "/",
   "display": "standalone",

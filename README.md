@@ -1,4 +1,4 @@
-# Amazon Product Finder & Exporter
+# AMZ Buscas
 
 Aplicação full-stack que usa a **Amazon Product Advertising API (PA-API 5.0)** para buscar produtos e exportar resultados para Excel.
 
