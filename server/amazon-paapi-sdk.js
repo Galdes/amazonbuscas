@@ -1,16 +1,21 @@
 /**
  * Cliente PA-API 5.0 usando o SDK oficial (paapi5-nodejs-sdk), igual ao projeto Produtos2.
  * A assinatura e o formato da requisição são feitos pelo SDK.
+ * SDK é carregado sob demanda (lazy) para evitar 502 no Netlify quando o require falha no load.
  */
 
 import { createRequire } from 'module';
 
 const require = createRequire(import.meta.url);
 
-/**
- * Busca itens via SearchItems usando o SDK oficial.
- * Retorna o mesmo formato que amazon-paapi.js: { SearchResult: { Items, TotalResultCount } }.
- */
+let _ProductAdvertisingAPIv1 = null;
+function getSDK() {
+  if (!_ProductAdvertisingAPIv1) {
+    _ProductAdvertisingAPIv1 = require('paapi5-nodejs-sdk/src/index');
+  }
+  return _ProductAdvertisingAPIv1;
+}
+
 const SORT_BY = {
   all: 'Relevance',
   deals: 'Relevance',
@@ -19,13 +24,12 @@ const SORT_BY = {
 };
 
 export async function searchItems(config, params) {
+  const ProductAdvertisingAPIv1 = getSDK();
   const { accessKey, secretKey, partnerTag, host, region } = config;
   const keywords = (params.keywords || 'produtos').trim() || 'produtos';
   const filter = params.filter || 'all';
   const itemCount = Math.min(params.itemCount ?? 10, 10);
   const itemPage = Math.max(1, params.itemPage ?? 1);
-
-  const ProductAdvertisingAPIv1 = require('paapi5-nodejs-sdk/src/index');
   const defaultClient = ProductAdvertisingAPIv1.ApiClient.instance;
   defaultClient.accessKey = accessKey;
   defaultClient.secretKey = secretKey;
