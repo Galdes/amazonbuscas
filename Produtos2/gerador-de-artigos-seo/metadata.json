@@ -1,5 +1,0 @@
-{
-  "name": "Gerador de Artigos SEO",
-  "description": "Uma aplicação web para gerar artigos otimizados para SEO de forma sequencial, com base em um título, outlines e um resumo de produto. O resultado é um HTML pronto para WordPress.",
-  "requestFramePermissions": []
-}

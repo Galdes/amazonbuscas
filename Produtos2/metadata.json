@@ -1,5 +1,0 @@
-{
-  "name": "SEO Outline Extractor",
-  "description": "A tool to search Google for keywords and extract H1, H2, H3 outlines from top results using Gemini Search Grounding.",
-  "requestFramePermissions": []
-}
