@@ -1,0 +1,24 @@
+# Build e publicação do frontend
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+# Redireciona /api/* para as Netlify Functions (rewrite para manter a URL)
+[[redirects]]
+  from = "/api/search"
+  to = "/.netlify/functions/search"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/home"
+  to = "/.netlify/functions/home"
+  status = 200
+  force = true
+
+# SPA: rotas que não são arquivos estáticos servem o index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

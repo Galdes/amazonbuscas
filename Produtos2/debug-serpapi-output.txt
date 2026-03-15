@@ -1,0 +1,12 @@
+Results count: 9
+First result: {
+  "position": 1,
+  "title": "como DESENTUPIR fogão cooktop / boca de fogão entupida",
+  "link": "https://www.youtube.com/watch?v=dbjMK3aQOVo",
+  "displayed_link": "Mais de 24,7 mil visualizações · há 2 anos",
+  "thumbnail": "https://serpapi.com/searches/691e7ce5ac1765c27cb6c8b3/images/eeab003329a959e06e4a6a8d12bb34b66482e344ce4b23510dc42647dc1d1583.jpeg",
+  "favicon": "https://serpapi.com/searches/691e7ce5ac1765c27cb6c8b3/images/eeab003329a959e06e4a6a8d12bb34b6cd955e08e84c73974101a66c1a085ad4.png",
+  "snippet": "Nesse vídeo eu te mostro como desentupir a trempe do fogão cooktop de uma forma fácil e rápida. Não custa nada e vale a pena tentar! resolvi ...",
+  "duration": "2:14",
+  "source": "YouTube · RESENHANDO | por Tamara Paiva"
+}
