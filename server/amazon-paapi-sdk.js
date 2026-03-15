@@ -1,19 +1,16 @@
 /**
- * Cliente PA-API 5.0 usando o SDK oficial (paapi5-nodejs-sdk), igual ao projeto Produtos2.
- * A assinatura e o formato da requisição são feitos pelo SDK.
- * SDK é carregado sob demanda (lazy) para evitar 502 no Netlify quando o require falha no load.
+ * Cliente PA-API 5.0 usando o SDK oficial (paapi5-nodejs-sdk).
+ * SDK é carregado sob demanda com import() para funcionar no Netlify
+ * (createRequire(import.meta.url) falha quando import.meta.url é undefined no Lambda).
  */
 
-import { createRequire } from 'module';
-
-const require = createRequire(import.meta.url);
-
-let _ProductAdvertisingAPIv1 = null;
-function getSDK() {
-  if (!_ProductAdvertisingAPIv1) {
-    _ProductAdvertisingAPIv1 = require('paapi5-nodejs-sdk/src/index');
+let _SDK = null;
+async function getSDK() {
+  if (!_SDK) {
+    const mod = await import('paapi5-nodejs-sdk/src/index');
+    _SDK = mod.default ?? mod;
   }
-  return _ProductAdvertisingAPIv1;
+  return _SDK;
 }
 
 const SORT_BY = {
@@ -24,7 +21,7 @@ const SORT_BY = {
 };
 
 export async function searchItems(config, params) {
-  const ProductAdvertisingAPIv1 = getSDK();
+  const ProductAdvertisingAPIv1 = await getSDK();
   const { accessKey, secretKey, partnerTag, host, region } = config;
   const keywords = (params.keywords || 'produtos').trim() || 'produtos';
   const filter = params.filter || 'all';
