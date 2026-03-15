@@ -7,7 +7,7 @@
 let _SDK = null;
 async function getSDK() {
   if (!_SDK) {
-    const mod = await import('paapi5-nodejs-sdk/src/index');
+    const mod = await import('paapi5-nodejs-sdk/src/index.js');
     _SDK = mod.default ?? mod;
   }
   return _SDK;
