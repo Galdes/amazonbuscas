@@ -13,6 +13,18 @@ export function Footer() {
       <p className="mt-3 text-xs text-gray-400">
         Os preços e a disponibilidade dos produtos estão corretos na data/horário indicados e podem sofrer alterações. Quaisquer informações de preço e disponibilidade exibidas na Amazon no momento da compra serão aplicáveis à compra.
       </p>
+      <p className="mt-4 text-xs text-gray-500">
+        Ferramenta feita por{' '}
+        <a
+          href="https://www.instagram.com/lucasdasilvaesilva/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#0071e3] hover:underline"
+        >
+          Lucas da Silva e Silva
+        </a>
+        {' '}| Talos Automações e Sistemas Inteligentes
+      </p>
     </motion.footer>
   );
 }
