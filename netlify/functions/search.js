@@ -18,14 +18,23 @@ function createRes() {
 }
 
 export async function handler(event) {
-  const req = {
-    query: event.queryStringParameters || {},
-  };
-  const res = createRes();
-  await handleSearch(req, res);
-  return {
-    statusCode: res._status,
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(res._body),
-  };
+  try {
+    const req = {
+      query: event.queryStringParameters || {},
+    };
+    const res = createRes();
+    await handleSearch(req, res);
+    return {
+      statusCode: res._status,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(res._body),
+    };
+  } catch (err) {
+    console.error('[search]', err);
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: err.message || 'Erro na função de busca.' }),
+    };
+  }
 }
